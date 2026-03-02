@@ -1,5 +1,6 @@
 # Claude Code Observability Platform on AWS
 클론해옴 : 원본 https://github.com/aws-samples/sample-aws-kr-enterprise/tree/main/ai-ml/claude-code-telemetry-aws
+
 Claude Code의 OpenTelemetry 텔레메트리 데이터를 수집, 저장, 분석하기 위한 AWS 관측성(Observability) 플랫폼입니다. AWS CDK(TypeScript)로 전체 인프라를 정의하며, **이중 파이프라인**으로 운영됩니다: 메트릭은 Amazon Managed Prometheus(AMP)에 저장하여 실시간 모니터링(30초 갱신)을, 이벤트는 S3(Parquet) + Athena에 저장하여 심층 분석을 제공합니다. Amazon Managed Grafana에서 6개 프로덕션 수준 대시보드(80패널)로 통합 시각화합니다. 게이지 패널, 스파크라인, 그라디언트 채움, 임계값 기반 색상, 테이블 셀 컬러링, 드릴다운 데이터 링크 등 운영 환경에 적합한 시각화를 제공합니다. 설계 철학: Prometheus는 실시간 집계 메트릭 및 정확한 비용 합산에, Athena는 이벤트 레벨 심층 분석에 특화합니다. 비용 관련 패널은 Prometheus 기반으로 안정적인 값을 제공하고, Athena는 유저명 매핑과 요청 단위 상세 분석을 담당하는 하이브리드 구조입니다.
 
 ---
